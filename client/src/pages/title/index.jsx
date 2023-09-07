@@ -7,7 +7,7 @@ const Title = () => {
         <body className='center'>
         <h1> MY FITNESS TRACKER </h1>
         </body>
-        <div className='headerBorder'></div>
+        {/* <div className='headerBorder'></div> */}
         </>
     )
 }
