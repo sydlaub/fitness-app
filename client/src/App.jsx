@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
-import Login from './pages/login';
-import Navigation from './pages/navbar';
+import Login from './components/login';
+import Navigation from './components/navbar';
 
 import './App.css';
 
@@ -13,20 +13,12 @@ function App() {
 
   return (
     <>
-      <div className="Body">
-        <div style={{ margin: "2vw" }}>
+      {isAuthenticated && <Navigation />}
       <Router>
         <Routes>
-            {/* <header> */}
-              {/* <div> */}
-                {/* {isAuthenticated && <Navigation />} */}
-              {/* </div> */}
-            {/* </header> */}
         <Route path='/' element={<Login />} />
         </Routes>
       </Router>
-      </div>
-      </div>
     </>
 
   );
