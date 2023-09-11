@@ -22,7 +22,7 @@ const startApolloServer = async () => {
   
   app.use('/graphql', expressMiddleware(server, {
     context: authMiddleware
-  }));
+  })); 
 
   if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../client/dist')));
@@ -32,10 +32,7 @@ const startApolloServer = async () => {
     });
   }
   
-  // Important for MERN Setup: Any client-side requests that begin with '/graphql' will be handled by our Apollo Server
-  app.use('/graphql', expressMiddleware(server, {
-    context: authMiddleware
-  }));
+
 
   db.once('open', () => {
     app.listen(PORT, () => {
