@@ -1,38 +1,48 @@
-// import ReactDOM from 'react-dom/client'
-// import React from "react"
-// // import { Auth0Provider } from "@auth0/auth0-react";
-// import App from "./App";
+import ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-// import { createRoot } from 'react-dom/client';
-// import { Auth0Provider } from '@auth0/auth0-react';
 
-// import { BrowserRouter } from 'react-router-dom';
+import App from './App.jsx';
+import Home from './pages/Home.jsx';
+import Signup from './pages/Signup.jsx';
+import Login from './pages/Login.jsx';
+import ProfilePage from './pages/ProfilePage.jsx';
+import NewExercise from './pages/NewExercise.jsx';
+import MusicPage from './pages/MusicPage.jsx'
+import ErrorPage from './pages/ErrorPage.jsx'
+import './index.css'
 
-// ReactDOM.createRoot(document.getElementById('root')).render(
-//   <React.StrictMode>
-//     <BrowserRouter>
-//       <App />
-//     </BrowserRouter>
-//     ,
-//   </React.StrictMode>,
 
-// );
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: '/login',
+        element: <Login />
+      }, {
+        path: '/signup',
+        element: <Signup />
+      },
+      {
+        index: true,
+        element: <Home />
+      }, {
+        path: '/profile',
+        element: <ProfilePage />
+      },{
+        path: '/newworkout',
+        element: <NewExercise />
+      }, {
+        path: '/music',
+        element: <MusicPage />
+      }
+    ]
+  }
+]);
 
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import { Auth0Provider } from '@auth0/auth0-react';
-import App from './App';
-
-const root = createRoot(document.getElementById('root'));
-console.log("test", window.location.origin)
-root.render(
-  <Auth0Provider
-    domain="dev-xsszomjebt84unzm.us.auth0.com"
-    clientId="59xRE3eGSQ0KAjFgWgutIwgH1tKEqTXm"
-    authorizationParams={{
-      redirect_uri: window.location.origin
-    }}
-  >
-    <App />
-  </Auth0Provider>,
-);
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <RouterProvider router={router} />
+)
