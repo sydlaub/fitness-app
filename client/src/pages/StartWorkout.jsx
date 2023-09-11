@@ -1,7 +1,7 @@
 const StartWorkout = () => {
     return (
         <>
-            build new exercise here
+            music and workout data go here
         </>
     )
 };

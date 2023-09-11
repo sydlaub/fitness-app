@@ -13,6 +13,16 @@ const Footer = () => {
                     >
                         &larr; Go Back
                     </button>
+                    
+                )}
+                {location.pathname !== '/' && (
+                    <button
+                        className="btn btn-dark mb-3"
+                        onClick={() => navigate(+1)}
+                    >
+                        Next &rarr;
+                    </button>
+
                 )}
                 <h4>
                     {' '}

@@ -37,9 +37,11 @@
 }
 
 .card {
-  padding: 2em;
+  padding: 1em;
+  border: solid;
+  margin: 5%;
 }
 
-.read-the-docs {
-  color: #888;
+.btn {
+margin: 5%
 }

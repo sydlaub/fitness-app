@@ -1,34 +1,22 @@
 import React from 'react';
-import {
-    MDBCol,
-    MDBContainer,
-    MDBRow,
-    MDBCard,
-    MDBCardText,
-    MDBCardBody,
-    MDBCardImage,
-    MDBBtn,
-    MDBBreadcrumb,
-    MDBBreadcrumbItem,
-    MDBIcon,
-    MDBListGroup,
-    MDBListGroupItem
-} from 'mdb-react-ui-kit';
+import Card from 'react-bootstrap/Card';
 
 const ProfilePage = () => {
     return (
-        <>
-        <MDBRow>
-            <MDBCol lg='4'>
-                    <MDBCard className="mb-4">
-                        <MDBCardBody className='text-center'>
-                            <p className="text-muted mb-1">User Name</p>
-                        </MDBCardBody>
-                        </MDBCard>
-            </MDBCol>
-        </MDBRow>
-        </>
-    )
+        <Card>
+            <Card.Header>My Profile</Card.Header>
+            <Card.Body>
+                    <p>
+                        {' '}
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+                        posuere erat a ante.{' '}
+                    </p>
+                    <footer>
+                        Someone famous in <cite title="Source Title">Source Title</cite>
+                    </footer>
+            </Card.Body>
+        </Card>
+    );
 };
 
 export default ProfilePage;
