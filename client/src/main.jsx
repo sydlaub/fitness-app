@@ -21,10 +21,14 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Auth0Provider } from '@auth0/auth0-react';
+import Auth0ProviderWithHistory from './auth/auth0-provider-with-history.js';
 import App from './App';
 
 const root = createRoot(document.getElementById('root'));
 console.log("test", window.location.origin)
+
+
+
 root.render(
   <Auth0Provider
     domain="dev-xsszomjebt84unzm.us.auth0.com"
@@ -33,6 +37,6 @@ root.render(
       redirect_uri: window.location.origin
     }}
   >
-    <App />
+      <App />
   </Auth0Provider>,
 );

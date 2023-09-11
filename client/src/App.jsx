@@ -13,14 +13,14 @@ import './App.css';
 
 
 function App() {
-  // const { isLoading, isAuthenticated } = useAuth0();
-  // if (isLoading) return <div>Loading...</div>
+  const { isLoading, isAuthenticated } = useAuth0();
+  if (isLoading) return <div>Loading...</div>
 
   return (
     <>
-      {/* {isAuthenticated && <Navigation />} */}
+      {isAuthenticated && <Navigation />}
       <Router>
-        <Navigation/>
+        {/* <Navigation/> */}
         <Routes>
           <Route path='/' element={<Login />} />
           <Route path='/home' element={<Home />} />
