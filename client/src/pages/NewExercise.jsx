@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import {
     MDBCard,
     MDBCardBody,
@@ -10,8 +11,32 @@ import {
 } from 'mdb-react-ui-kit';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
+import { fetchData, exerciseOptions } from '../utils/fetchData';
 
-const NewExercise = () => {
+const newExercise = () => {
+    const [exerciseDetail, setExerciseDetail] = useState({});
+    const [targetMuscleExercises, setTargetMuscleExercises] = useState([]);
+    const [equipmentExercises, setEquipmentExercises] = useState([]);
+    const { id } = useParams();
+
+    useEffect(() => {
+
+        const fetchExercisesData = async () => {
+            const exerciseDbUrl = 'https://workoutdb1.p.rapidapi.com/exercises';
+
+            const exerciseDetailData = await fetchData(`${exerciseDbUrl}/${id}`, exerciseOptions);
+            setExerciseDetail(exerciseDetailData);
+
+            const targetMuscleExercisesData = await fetchData(`${exerciseDbUrl}/targetList/${exerciseDetailData.target}`, exerciseOptions);
+            setTargetMuscleExercises(targetMuscleExercisesData);
+
+            const equipmentExercisesData = await fetchData(`${exerciseDbUrl}/equipmentList/${exerciseDetailData.equipment}`, exerciseOptions);
+            setEquipmentExercises(equipmentExercisesData);
+        };
+
+        fetchExercisesData();
+    }, [id]);
+
     return (
         <>
             <MDBCard>
@@ -65,4 +90,5 @@ const NewExercise = () => {
     );
 };
 
-export default NewExercise;
+export default newExercise;
+
