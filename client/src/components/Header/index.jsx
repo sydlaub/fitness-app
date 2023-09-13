@@ -43,8 +43,8 @@ const Header = () => {
                         )}
                     </ Navbar>
                 <div>
-                    <Link className="text-light" to="/">
-                        <h1 className="m-0">TONE</h1>
+                    <Link className="text-light" to="/home">
+                        <h1 className="m-0">TONE.</h1>
                     </Link>
                 </div>
             </div>
