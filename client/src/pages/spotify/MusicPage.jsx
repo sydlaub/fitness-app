@@ -35,8 +35,19 @@ const MusicPage = () => {
 
     return (
         <>
-          <div>
-            <a href='http://localhost:8888'>Login to Spotify</a>
+            <div className='App'>
+                {!loggedIn && <a href='http://localhost:8888'>Login to Spotify</a>}
+                {loggedIn && (
+                    <>
+                        <div>
+                            Now Playing: {nowPlaying.name}
+                        </div>
+                        <div><img src={nowPlaying.albumArt} style={{ height: 150 }} /></div>
+                    </>
+                )}
+                {loggedIn && (
+                    <button onClick={() => getNowPlaying()}>Check Now Playing</button>
+                )}
             </ div>
         </>
     )
