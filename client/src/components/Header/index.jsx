@@ -9,9 +9,10 @@ const Header = () => {
     const logout = (event) => {
         event.preventDefault();
         Auth.logout();
+        window.location.href='/';
     };
     return (
-        <header className="bg-primary text-light mb-4 py-3 flex-row align-center">
+        <header className="bg-primary text-light  flex-row align-center header">
             <div className="container flex-row justify-space-between-lg justify-center align-center">
                     <Navbar expand="lg" className="bg-body-tertiary navbar justify-content-between">
                         {Auth.loggedIn() ? (
@@ -42,10 +43,20 @@ const Header = () => {
 
                         )}
                     </ Navbar>
-                <div>
+                <div> 
+                    {Auth.loggedIn() ? (
+                        <>
                     <Link className="text-light" to="/home">
                         <h1 className="m-0">TONE.</h1>
                     </Link>
+                        </>
+                    ) : (
+                            <>
+                                <Link className="text-light" to="/">
+                                    <h1 className="m-0">TONE.</h1>
+                                </Link>
+                            </> 
+                    )};
                 </div>
             </div>
         </header>

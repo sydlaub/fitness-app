@@ -14,7 +14,9 @@ const Home = () => {
 
             ) : (
                 <>
-                You are not authorized to access this page.
+                        <h2>Oops!</h2>
+                You are not authorized to access this page. <br/>
+                Please login or signup to continue.
                 </>
             )}
         </main>
