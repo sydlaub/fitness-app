@@ -1,6 +1,7 @@
 export default function LandingPage() {
 
     return (
+        <main>
         <div>
            <h2>
             Welcome to Tone.
@@ -10,5 +11,7 @@ export default function LandingPage() {
                 Please login or sign up to get started.
             </h3>
         </div>
+
+        </main>
     );
 }

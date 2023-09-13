@@ -3,6 +3,8 @@ import ExerciseForm from '../components/ExerciseForm'
 import Card from '../components/ExerciseCard'
 
 const ExerciseNew = ({ form, onChange, onSubmit }) => (
+    <main>
+
     <div className="ExerciseNew_Lateral_Spaces row">
         <div className="col-sm ExerciseNew_Card_Space">
             <Card
@@ -17,6 +19,7 @@ const ExerciseNew = ({ form, onChange, onSubmit }) => (
             />
         </div>
     </div>
+    </main>
 )
 
 export default ExerciseNew

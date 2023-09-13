@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../../utils/mutations';
-
+import './index.css';
 import Auth from '../../utils/auth';
 
 const Login = (props) => {
@@ -29,7 +29,7 @@ const Login = (props) => {
             });
 
             Auth.login(data.login.token);
-            window.location.href='/home'
+            window.location.href = '/home'
         } catch (e) {
             console.error(e);
         }
@@ -42,10 +42,10 @@ const Login = (props) => {
     };
 
     return (
-        <main className="flex-row justify-center mb-4">
+        <main className="flex-row justify-center mb-4 login-container">
             <div className="col-12 col-lg-10">
                 <div className="card">
-                    <h4 className="card-header bg-dark text-light p-2">Login</h4>
+                    <h4 className="card-header bg-dark text-light p-2 login-header">Login</h4>
                     <div className="card-body">
                         {data ? (
                             <p>
@@ -53,31 +53,38 @@ const Login = (props) => {
                                 <Link to="/home">back to the homepage.</Link>
                             </p>
                         ) : (
-                            <form onSubmit={handleFormSubmit}>
-                                <input
-                                    className="form-input"
-                                    placeholder="Your email"
-                                    name="email"
-                                    type="email"
-                                    value={formState.email}
-                                    onChange={handleChange}
-                                />
-                                <input
-                                    className="form-input"
-                                    placeholder="******"
-                                    name="password"
-                                    type="password"
-                                    value={formState.password}
-                                    onChange={handleChange}
-                                />
-                                <button
-                                    className="btn btn-block btn-primary"
-                                    style={{ cursor: 'pointer' }}
-                                    type="submit"
-                                >
-                                    Submit
-                                </button>
-                            </form>
+                            <>
+                                <form onSubmit={handleFormSubmit}>
+                                    <div className='input'>
+                                        <input
+                                            className="form-input"
+                                            placeholder="Email"
+                                            name="email"
+                                            type="email"
+                                            value={formState.email}
+                                            onChange={handleChange}
+                                        />
+                                    </div>
+                                    <div>
+
+                                        <input
+                                            className="form-input"
+                                            placeholder="******"
+                                            name="password"
+                                            type="password"
+                                            value={formState.password}
+                                            onChange={handleChange}
+                                        />
+                                    </div>
+                                    <button
+                                        className="btn btn-block btn-primary"
+                                        style={{ cursor: 'pointer' }}
+                                        type="submit"
+                                    >
+                                        Submit
+                                    </button>
+                                </form>
+                            </>
                         )}
 
                         {error && (

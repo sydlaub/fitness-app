@@ -29,7 +29,10 @@ function StartWorkout() {
 
     return (
         <>
-            { <WebPlayback token={token} />}
+            <main>
+
+                {<WebPlayback token={token} />}
+            </main>
         </>
     );
 }
