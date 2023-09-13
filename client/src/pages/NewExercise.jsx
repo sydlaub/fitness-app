@@ -20,5 +20,3 @@ const ExerciseNew = ({ form, onChange, onSubmit }) => (
 )
 
 export default ExerciseNew
-
-
