@@ -15,7 +15,7 @@ const getTokenFromUrl = () => {
 
 const MusicPage = () => {
     const [spotifyToken, setSpotifyToken] = useState("");
-    const [nowPlaying, SetNowPlaying] = useState({});
+    const [nowPlaying, setNowPlaying] = useState({});
     const [loggedIn, setLoggedIn] = useState(false);
 
     useEffect(() => {
@@ -27,11 +27,27 @@ const MusicPage = () => {
         if (spotifyToken) {
             setSpotifyToken(spotifyToken)
             // use spotify API
+            spotifyApi.setAccessToken(spotifyToken);
+            spotifyApi.getMe().then((user) => {
+                console.log(user)
+            });
             setLoggedIn(true);
         }
 
     });
 
+    const getNowPlaying = () => {
+        spotifyApi.getMyCurrentPlayingTrack().then((response) => {
+            console.log(response);
+            if (response.item) { 
+                setNowPlaying({
+                name: response.item.name,
+                albumArt: response.item.album.images[0].url
+            
+            });
+        }
+        });
+    };
 
     return (
         <>
