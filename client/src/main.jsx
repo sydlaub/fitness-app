@@ -8,7 +8,7 @@ import Signup from './pages/Signup.jsx';
 import Login from './pages/Login.jsx';
 import ProfilePage from './pages/ProfilePage.jsx';
 import NewExercise from './pages/NewExercise.jsx';
-import MusicPage from './pages/MusicPage.jsx'
+import MusicPage from './pages/spotify/MusicPage.jsx'
 import ErrorPage from './pages/ErrorPage.jsx'
 import './index.css'
 
@@ -33,6 +33,10 @@ const router = createBrowserRouter([
         path: '/profile',
         element: <ProfilePage />
       },{
+        path: '/me',
+        element: <ProfilePage />
+      },
+      {
         path: '/newworkout',
         element: <NewExercise />
       }, {
