@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../utils/mutations';
+import { LOGIN_USER } from '../../utils/mutations';
 
-import Auth from '../utils/auth';
+import Auth from '../../utils/auth';
 
 const Login = (props) => {
     const [formState, setFormState] = useState({ email: '', password: '' });
@@ -29,6 +29,7 @@ const Login = (props) => {
             });
 
             Auth.login(data.login.token);
+            window.location.href='/home'
         } catch (e) {
             console.error(e);
         }
@@ -49,7 +50,7 @@ const Login = (props) => {
                         {data ? (
                             <p>
                                 Success! You may now head{' '}
-                                <Link to="/">back to the homepage.</Link>
+                                <Link to="/home">back to the homepage.</Link>
                             </p>
                         ) : (
                             <form onSubmit={handleFormSubmit}>

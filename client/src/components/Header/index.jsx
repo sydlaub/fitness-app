@@ -16,12 +16,16 @@ const Header = () => {
                     <Navbar expand="lg" className="bg-body-tertiary navbar justify-content-between">
                         {Auth.loggedIn() ? (
                             <>
-                                <Nav.Link className="btn btn-lg btn-info m-2" href="/me">
+                                <Nav.Link className="btn btn-lg btn-info m-2 name" href="/me">
                                     {Auth.getProfile().data.email}
                                 </Nav.Link>
-                                <Nav.Link className="btn btn-lg btn-light m-2" href="/profile">
-                                    Profile
-                                </Nav.Link>
+
+                            <Nav.Link className="btn btn-lg btn-light m-2" href="/home">
+                                Home
+                            </Nav.Link>
+                            <Nav.Link className="btn btn-lg btn-light m-2" href="/profile">
+                                Dashboard
+                            </Nav.Link>
                                 <button className="btn btn-lg btn-light m-2" onClick={logout}>
                                     Logout
                                 </button>
