@@ -62,7 +62,7 @@ const newExercise = () => {
                                     <Form.Control aria-label="Text input with checkbox" />
                                 </InputGroup>
                             </MDBCardText>
-        
+
                         </MDBCardBody>
                     </MDBCard>
                 </MDBCol>
@@ -81,7 +81,7 @@ const newExercise = () => {
                             <MDBCardText>
                                 With supporting text below as a natural lead-in to additional content.
                             </MDBCardText>
-    
+
                         </MDBCardBody>
                     </MDBCard>
                 </MDBCol>
@@ -91,4 +91,6 @@ const newExercise = () => {
 };
 
 export default newExercise;
+
+
 
