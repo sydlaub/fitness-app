@@ -7,8 +7,8 @@ import LandingPage from './pages/LandingPage.jsx'
 import Home from './pages/home/Home.jsx';
 import Signup from './pages/login/Signup.jsx';
 import Login from './pages/login/Login.jsx';
-import ProfilePage from './pages/ProfilePage.jsx';
-import NewExercise from './pages/NewExercise.jsx';
+import ProfilePage from './pages/dashboard/ProfilePage.jsx';
+import NewExercise from './pages/new-exercise/NewExercise.jsx';
 import MusicPage from './pages/spotify/MusicPage.jsx';
 import StartWorkout from './pages/StartWorkout.jsx';
 import ErrorPage from './pages/ErrorPage.jsx'
