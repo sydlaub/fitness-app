@@ -30,8 +30,14 @@ function StartWorkout() {
     return (
         <>
             <main>
+                <div>
+                    EXERCISE PLAN GOES HERE
 
-                {<WebPlayback token={token} />}
+                </div>
+                <div>
+                    {/* {<WebPlayback token={token} />} */}
+                </div>
+
             </main>
         </>
     );
