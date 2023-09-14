@@ -1,22 +1,19 @@
-import React, { useState } from "react";
-import { Box } from "@mui/material";
+import React, { useState } from 'react';
+import { Box } from '@mui/material';
 
-import Exercises from "../components/Exercises";
+import Exercises from '../components/Exercises';
+import SearchExercises from '../components/SearchExercises';
 
-
-const newExercise = () => {
+const Home = () => {
     const [exercises, setExercises] = useState([]);
-    const [bodyPart, setBodyPart] = useState("all");
+    const [bodyPart, setBodyPart] = useState('all');
 
     return (
         <Box>
-            <Exercises
-                setExercises={setExercises}
-                exercises={exercises}
-                bodyPart={bodyPart}
-            />
+            <SearchExercises setExercises={setExercises} bodyPart={bodyPart} setBodyPart={setBodyPart} />
+            <Exercises setExercises={setExercises} exercises={exercises} bodyPart={bodyPart} />
         </Box>
     );
 };
 
-export default newExercise;
+export default Home;
