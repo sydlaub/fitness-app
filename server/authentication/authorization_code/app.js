@@ -13,6 +13,12 @@ var cors = require('cors');
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
 
+// code for rendering web app
+const dotenv = require('dotenv');
+global.access_token = ''
+
+dotenv.config()
+
 var client_id = '3732a0e9782d4765ac7f08d44b4a2efb';
 var client_secret = '38c07844c3204493807fc7082c6b677c';
 var redirect_uri = 'http://localhost:8888/callback'

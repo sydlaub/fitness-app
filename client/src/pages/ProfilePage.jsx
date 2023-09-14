@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 
 const ProfilePage = () => {
     return (
+        <main>
         <Card>
             <Card.Header>My Profile</Card.Header>
             <Card.Body>
@@ -16,6 +17,8 @@ const ProfilePage = () => {
                     </footer>
             </Card.Body>
         </Card>
+
+        </main>
     );
 };
 
