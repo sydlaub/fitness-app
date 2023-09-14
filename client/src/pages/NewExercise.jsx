@@ -1,25 +1,22 @@
-import React, { useEffect, useState } from 'react'
-import ExerciseForm from '../components/ExerciseForm'
-import Card from '../components/ExerciseCard'
+import React, { useState } from "react";
+import { Box } from "@mui/material";
 
-const ExerciseNew = ({ form, onChange, onSubmit }) => (
-    <main>
+import Exercises from "../components/Exercises";
 
-    <div className="ExerciseNew_Lateral_Spaces row">
-        <div className="col-sm ExerciseNew_Card_Space">
-            <Card
-                {...form}
+
+const newExercise = () => {
+    const [exercises, setExercises] = useState([]);
+    const [bodyPart, setBodyPart] = useState("all");
+
+    return (
+        <Box>
+            <Exercises
+                setExercises={setExercises}
+                exercises={exercises}
+                bodyPart={bodyPart}
             />
-        </div>
-        <div className="col-sm ExerciseNew_Form_Space">
-            <ExerciseForm
-                onChange={onChange}
-                onSubmit={onSubmit}
-                form={form}
-            />
-        </div>
-    </div>
-    </main>
-)
+        </Box>
+    );
+};
 
-export default ExerciseNew
+export default newExercise;
