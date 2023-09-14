@@ -7,7 +7,7 @@ import Home from './pages/Home.jsx';
 import Signup from './pages/Signup.jsx';
 import Login from './pages/Login.jsx';
 import ProfilePage from './pages/ProfilePage.jsx';
-// import NewExercise from './pages/NewExercise.jsx';
+import NewExercise from './pages/NewExercise.jsx';
 import MusicPage from './pages/spotify/MusicPage.jsx'
 import ErrorPage from './pages/ErrorPage.jsx'
 import './index.css'
@@ -37,8 +37,8 @@ const router = createBrowserRouter([
         element: <ProfilePage />
       },
       {
-        // path: '/newworkout',
-        // element: <NewExercise />
+        path: '/newworkout',
+        element: <NewExercise />
       }, {
         path: '/music',
         element: <MusicPage />
