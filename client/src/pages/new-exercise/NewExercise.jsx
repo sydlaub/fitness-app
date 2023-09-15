@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import { Box } from "@mui/material";
 
 import Exercises from "../../components/Exercises";
@@ -18,11 +19,14 @@ const newExercise = () => {
                 />
             </Box>
             <div>
-                <button>
+                <button><Link to='/music'>
                     Connect to Spotify
+                </Link>
                 </button>
-                <button>
+                <button><Link to='/startworkout'>
+
                     Start Workout
+                </Link>
                 </button>
             </div>
         </main>
