@@ -1,38 +1,61 @@
-// import ReactDOM from 'react-dom/client'
-// import React from "react"
-// // import { Auth0Provider } from "@auth0/auth0-react";
-// import App from "./App";
+import ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-// import { createRoot } from 'react-dom/client';
-// import { Auth0Provider } from '@auth0/auth0-react';
 
-// import { BrowserRouter } from 'react-router-dom';
+import App from './App.jsx';
+import LandingPage from './pages/LandingPage.jsx'
+import Home from './pages/home/Home.jsx';
+import Signup from './pages/login/Signup.jsx';
+import Login from './pages/login/Login.jsx';
+import ProfilePage from './pages/dashboard/ProfilePage.jsx';
+import NewExercise from './pages/new-exercise/NewExercise.jsx';
+import MusicPage from './pages/spotify/MusicPage.jsx';
+import StartWorkout from './pages/StartWorkout.jsx';
+import ErrorPage from './pages/ErrorPage.jsx'
+import './index.css'
 
-// ReactDOM.createRoot(document.getElementById('root')).render(
-//   <React.StrictMode>
-//     <BrowserRouter>
-//       <App />
-//     </BrowserRouter>
-//     ,
-//   </React.StrictMode>,
 
-// );
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: '/',
+        element: <LandingPage />
+      },
+      {
+        path: '/login',
+        element: <Login />
+      }, {
+        path: '/signup',
+        element: <Signup />
+      },
+      {
+        path: '/home',
+        element: <Home />
+      }, {
+        path: '/profile',
+        element: <ProfilePage />
+      }, {
+        path: '/me',
+        element: <ProfilePage />
+      },
+      {
+        path: '/newworkout',
+        element: <NewExercise />
+      }, {
+        path: '/music',
+        element: <MusicPage />
+      }, {
+        path: '/startworkout',
+        element: <StartWorkout />
+      }
+    ]
+  }
+]);
 
-// import React from 'react';
-import { createRoot } from 'react-dom/client';
-import { Auth0Provider } from '@auth0/auth0-react';
-import App from './App';
-
-const root = createRoot(document.getElementById('root'));
-
-root.render(
-  <Auth0Provider
-    domain="dev-xsszomjebt84unzm.us.auth0.com"
-    clientId="59xRE3eGSQ0KAjFgWgutIwgH1tKEqTXm"
-    authorizationParams={{
-      redirect_uri: window.location.origin
-    }}
-  >
-    <App />
-  </Auth0Provider>,
-);
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <RouterProvider router={router} />
+)

@@ -1,0 +1,13 @@
+.header {
+ width: 100%;
+ margin-top: 2%;
+}
+
+.name {
+    color: navy;
+    outline: solid;
+    border-radius: 8px;
+    padding: 10px;
+    
+
+}
