@@ -1,129 +1,71 @@
-import React, { useState, useEffect } from 'react';
-import './index.css';
+// import './index.css';
+// import React, { useState, useEffect } from 'react';
+// import SpotifyWebApi from 'spotify-web-api-js';
 
-const getTokenFromUrl = () => {
-    return window.location.hash.substring(1).split('&').reduce((initial, item) => {
-        let parts = item.split('=')
-        initial[parts[0]] = decodeURIComponent(parts[1])
-        return initial
-    }, {})
-};
+// const spotifyApi = new SpotifyWebApi();
 
-const track = {
-    name: "",
-    album: {
-        images: [
-            { url: "" }
-        ]
-    },
-    artists: [
-        { name: "" }
-    ]
-}
+// const getTokenFromUrl = () => {
+//     return window.location.hash.substring(1).split('&').reduce((initial, item) => {
+//         let parts = item.split('=')
+//         initial[parts[0]] = decodeURIComponent(parts[1])
+//         return initial
+//     }, {})
+// };
 
-function WebPlayback(props) {
+// const Playlist = () => {
+//     const [spotifyToken, setSpotifyToken] = useState("");
+//     const [getPlaylist, setPlaylist] = useState({});
+//     const [loggedIn, setLoggedIn] = useState(false);
 
-    const [is_paused, setPaused] = useState(false);
-    const [is_active, setActive] = useState(false);
-    const [player, setPlayer] = useState(undefined);
-    const [current_track, setTrack] = useState(track);
+//     useEffect(() => {
+//         console.log("This is what we derived from the url:", getTokenFromUrl());
+//         const spotifyToken = getTokenFromUrl().access_token
+//         window.location.has = '';
+//         console.log("This is our spotify token", spotifyToken);
 
-    useEffect(() => {
+//         if (spotifyToken) {
+//             setSpotifyToken(spotifyToken)
+//             // use spotify API
+//             spotifyApi.setAccessToken(spotifyToken);
+//             spotifyApi.getMe().then((user) => {
+//                 console.log(user)
+//             });
+//             setLoggedIn(true);
+//         }
 
-        const script = document.createElement("script");
-        script.src = "https://sdk.scdn.co/spotify-player.js";
-        script.async = true;
+//     });
 
-        document.body.appendChild(script);
+//     const getPlaylist = () => {
+//         spotifyApi.getCategoryPlaylists().then((response => {
+//             console.log(response);
+//             // if (response.item) {
+//             //     setPlaylist({
+//             //     })
+//             // }
+//         }))
+//     };
 
-        window.onSpotifyWebPlaybackSDKReady = () => {
+//     return (
+//         <>
+//         {/* <div className='playlist'>
+//                 {!loggedIn && <a href='http://localhost:8888'>Login to Spotify</a>}
+//                 {loggedIn && (
+//                     <>
+//                         <div>
+//                             Now Playing: {nowPlaying.name}
+//                         </div>
+//                         <div>
+//                             Artist: {nowPlaying.artist}
+//                         </div>
+//                         <div><img src={nowPlaying.albumArt} style={{ height: 150 }} /></div>
+//                     </>
+//                 )}
+//                 {loggedIn && (
+//                     <button onClick={() => getNowPlaying()}>Check Now Playing</button>
+//                 )}
 
-            const player = new window.Spotify.Player({
-                name: 'Web Playback SDK',
-                getOAuthToken: cb => { cb(props.token); },
-                volume: 0.5
-            });
+//         </div> */}
+//         </>
+//     )
 
-            setPlayer(player);
-
-            player.addListener('ready', ({ device_id }) => {
-                console.log('Ready with Device ID', device_id);
-            });
-
-            player.addListener('not_ready', ({ device_id }) => {
-                console.log('Device ID has gone offline', device_id);
-            });
-
-            player.addListener('initialization_error', ({ message }) => {
-                console.error(message);
-            });
-
-            player.addListener('authentication_error', ({ message }) => {
-                console.error(message);
-            });
-
-            player.addListener('account_error', ({ message }) => {
-                console.error(message);
-            });
-
-            player.addListener('player_state_changed', (state => {
-
-                if (!state) {
-                    return;
-                }
-
-                setTrack(state.track_window.current_track);
-                setPaused(state.paused);
-
-                player.getCurrentState().then(state => {
-                    (!state) ? setActive(false) : setActive(true)
-                });
-
-            }));
-
-            player.connect();
-
-        };
-    });
-
-    if (!is_active) {
-        return (
-            <>
-                <div className="container">
-                    <div className="main-wrapper">
-                        <b> Instance not active. Transfer your playback using your Spotify app </b>
-                    </div>
-                </div>
-            </>)
-    } else {
-        return (
-            <>
-                <div className="container">
-                    <div className="main-wrapper">
-
-                        <img src={current_track.album.images[0].url} className="now-playing__cover" alt="" />
-
-                        <div className="now-playing__side">
-                            <div className="now-playing__name">{current_track.name}</div>
-                            <div className="now-playing__artist">{current_track.artists[0].name}</div>
-
-                            <button className="btn-spotify" onClick={() => { player.previousTrack() }} >
-                                &lt;&lt;
-                            </button>
-
-                            <button className="btn-spotify" onClick={() => { player.togglePlay() }} >
-                                {is_paused ? "PLAY" : "PAUSE"}
-                            </button>
-
-                            <button className="btn-spotify" onClick={() => { player.nextTrack() }} >
-                                &gt;&gt;
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </>
-        );
-    }
-}
-
-export default WebPlayback
+// }
