@@ -42,7 +42,8 @@ const MusicPage = () => {
             if (response.item) { 
                 setNowPlaying({
                 name: response.item.name,
-                albumArt: response.item.album.images[0].url
+                albumArt: response.item.album.images[0].url,
+                artist: response.item.artists[0].name
             
             });
         }
@@ -57,6 +58,9 @@ const MusicPage = () => {
                     <>
                         <div>
                             Now Playing: {nowPlaying.name}
+                        </div>
+                        <div>
+                            Artist: {nowPlaying.artist}
                         </div>
                         <div><img src={nowPlaying.albumArt} style={{ height: 150 }} /></div>
                     </>

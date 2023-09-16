@@ -77,3 +77,10 @@ button:focus-visible {
         background-color: #f9f9f9;
     }
 }
+
+main {
+    margin-bottom: 100px;
+    align-items: center;
+    justify-content: center;
+}
+

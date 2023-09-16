@@ -42,17 +42,21 @@ function App() {
 
   return (
     <ApolloProvider client={client}>
-      <div>
-        <Header />
-        <div className='container'>
-          <Outlet />
-        </div>
-        <div>
-          <Footer />
+      <main>
 
+        <div>
+          <Header />
+          <div className='container'>
+            <Outlet />
+          </div>
+          <div>
+            <Footer />
+
+          </div>
         </div>
-      </div>
+      </main >
     </ApolloProvider>
+   
   );
 }
 
