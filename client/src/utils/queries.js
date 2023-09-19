@@ -30,3 +30,12 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+export const QUERY_GOAL = gql`
+query goal {
+  goals {
+    _id
+    goalText
+    date
+  }
+}`

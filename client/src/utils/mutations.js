@@ -22,3 +22,13 @@ mutation AddUser($username: String!, $email: String!, $password: String!) {
   }
 }
 `;
+
+export const ADD_GOAL = gql`
+mutation AddGoal($goalText: String!) {
+  addGoal(goalText: $goalText) {
+    goalText
+    _id
+    date
+  }
+}
+`;
