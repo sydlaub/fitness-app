@@ -15,8 +15,8 @@
 This application uses MongoDB, Express, React, Node, and GraphQL to create a fitness application using ExerciseDB and Spotify APIs
 
 ## Links
-[Deployed application on Heroku]()
-[Github repository]()
+[Deployed application on Heroku](https://tone-4f1490550558.herokuapp.com/)
+[Github repository](https://github.com/sydlaub/fitness-app)
 
 ## Screenshots
 Landing page:
