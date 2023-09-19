@@ -10,7 +10,7 @@ const ProfilePage = () => {
 
     useEffect(() => {
         // Query the database to get logged in user profile data
-        // Call setGoalsArray with that user's goals
+        // Call setGoalsArray with that user's 
     }, [])
 
     const handleChange = (event) => {
