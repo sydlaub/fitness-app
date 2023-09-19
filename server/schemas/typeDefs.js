@@ -14,6 +14,12 @@ const typeDefs = `
     date: String
   }
 
+  type Goal {
+    _id: ID
+    goalText: String
+    date: String
+  }
+
   type Auth {
     token: ID!
     user: User
@@ -24,6 +30,8 @@ const typeDefs = `
     user(username: String!): User
     exercises(username: String): [Exercise]
     exercise(exerciseId: ID!): Exercise
+    goals: [Goal]!
+    goal(goalId: ID!): Goal 
     me: User
   }
 
@@ -32,6 +40,9 @@ const typeDefs = `
     login(email: String!, password: String!): Auth
     addExercise(thoughtText: String!): Exercise
     removeExercise(exerciseId: ID!): Exercise
+    addGoal(goalText: String!): Goal
+    removeGoal(goalId: ID!): Goal
+    updateGoal(goalId: ID!): Goal
   }
 `;
 

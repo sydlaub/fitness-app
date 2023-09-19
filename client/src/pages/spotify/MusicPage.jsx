@@ -1,6 +1,7 @@
 import './index.css';
 import React, { useState, useEffect } from 'react';
 import SpotifyWebApi from 'spotify-web-api-js';
+import { Link } from 'react-router-dom';
 
 const spotifyApi = new SpotifyWebApi();
 
@@ -39,14 +40,14 @@ const MusicPage = () => {
     const getNowPlaying = () => {
         spotifyApi.getMyCurrentPlayingTrack().then((response) => {
             console.log(response);
-            if (response.item) { 
+            if (response.item) {
                 setNowPlaying({
-                name: response.item.name,
-                albumArt: response.item.album.images[0].url,
-                artist: response.item.artists[0].name
-            
-            });
-        }
+                    name: response.item.name,
+                    albumArt: response.item.album.images[0].url,
+                    artist: response.item.artists[0].name
+
+                });
+            } else (response.item === null )
         });
     };
 
@@ -56,19 +57,33 @@ const MusicPage = () => {
                 {!loggedIn && <a href='http://localhost:8888'>Login to Spotify</a>}
                 {loggedIn && (
                     <>
-                        <div>
-                            Now Playing: {nowPlaying.name}
-                        </div>
-                        <div>
-                            Artist: {nowPlaying.artist}
-                        </div>
-                        <div><img src={nowPlaying.albumArt} style={{ height: 150 }} /></div>
+                        {nowPlaying.name === null &&
+                            <div>
+                                <h2>Oops!</h2>
+                                <p>You're not currently listening to anything. Turn on a song and try again!</p>
+                            </div>
+                        }
+                        {nowPlaying.name &&
+                            <>
+                                <div>
+                                    Now Playing: {nowPlaying.name}
+                                </div>
+                                <div>
+                                    Artist: {nowPlaying.artist}
+                                </div>
+                                <div><img src={nowPlaying.albumArt} style={{ height: 150 }} /></div>
+                            </>
+                        }
                     </>
                 )}
                 {loggedIn && (
                     <button onClick={() => getNowPlaying()}>Check Now Playing</button>
                 )}
             </ div>
+<div>
+    <button><Link to='/startworkout'>Start Workout</Link>
+    </button>
+</div>
         </>
     )
 };
