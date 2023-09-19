@@ -37,10 +37,10 @@ function WebPlayback(props) {
         document.body.appendChild(script);
 
         window.onSpotifyWebPlaybackSDKReady = () => {
-            const token = 'BQCjVBtunWKA7JuQphhtK9J4wUxLsn9hFJeczX1Jk9jq5FMSVkdpZTkjvvVKF_yL84BKbs7TnqZV - BazTzf9YZMp20V4zzQnluuCuHy9KSOEyTH0pvM2jaLxCMgMGWUvb2NWzfMhyfyoqTwXQJdUhcynQlvBLD4pwbpQnIJv14Sg6j6vywVoH7UmpuF - n65e2hXjSKM'
+
             const player = new window.Spotify.Player({
                 name: 'Web Playback SDK',
-                getOAuthToken: cb => { cb(token); },
+                getOAuthToken: cb => { cb(props.token); },
                 volume: 0.5
             });
 
